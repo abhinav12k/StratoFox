@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/moduleFragment">
+
+    <fragment
+        android:id="@+id/moduleFragment"
+        android:name="com.deepspace.hab.screens.modules.ModuleFragment"
+        android:label="fragment_module"
+        tools:layout="@layout/fragment_module">
+        <action
+            android:id="@+id/action_moduleFragment_to_lessonActivity"
+            app:destination="@id/lessonActivity" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/guidelinesFragment"
+        android:name="com.deepspace.hab.screens.guidelines.GuidelinesFragment"
+        android:label="fragment_guidelines"
+        tools:layout="@layout/fragment_guidelines" >
+        <action
+            android:id="@+id/action_guidelinesFragment_to_guidelinesDetailActivity"
+            app:destination="@id/guidelinesDetailActivity" />
+    </fragment>
+
+    <activity
+        android:id="@+id/lessonActivity"
+        android:name="com.deepspace.hab.screens.lesson.LessonActivity"
+        android:label="activity_lesson"
+        tools:layout="@layout/activity_lesson">
+        <argument
+            android:name="moduleDetails"
+            android:defaultValue="@null"
+            app:nullable="true"
+            app:argType="com.deepspace.hab.models.Module" />
+    </activity>
+    <fragment
+        android:id="@+id/toolsFragment"
+        android:name="com.deepspace.hab.screens.tools.ToolsFragment"
+        android:label="fragment_tools"
+        tools:layout="@layout/fragment_tools" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.deepspace.hab.screens.profile.ProfileFragment"
+        android:label="ProfileFragment" />
+    <fragment
+        android:id="@+id/simulationFragment"
+        android:name="com.deepspace.hab.screens.SimulationFragment"
+        android:label="fragment_simulation"
+        tools:layout="@layout/fragment_simulation" />
+    <activity
+        android:id="@+id/guidelinesDetailActivity"
+        android:name="com.deepspace.hab.screens.guidelines.GuidelinesDetailActivity"
+        android:label="activity_guidelines_detail"
+        tools:layout="@layout/activity_guidelines_detail" >
+        <argument
+            android:name="type"
+            app:argType="string"
+            android:defaultValue="community" />
+    </activity>
+</navigation>
