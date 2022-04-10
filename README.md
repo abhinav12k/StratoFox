@@ -6,10 +6,7 @@
 
 ![NEAR SPACE, MADE EASY (1)](https://user-images.githubusercontent.com/43119465/135766702-a3e807e5-cccf-4ee1-9e18-c30e0b91ed93.png)
 
-
-## Project Idea Description  : 
-
-### Team Name : DeepSpace 9
+## Team Name : DeepSpace 9
 ### Team Members : 
 - Abhinav
 - Harshit Gaur
@@ -23,8 +20,7 @@ We plan to develop a lesson-plan and bill of materials (BOM) to teach students h
 - Recovery of a HAB
 
 ### Idea
-> The idea is to create an Android based application which can serve as an One Stop Solution from which the students can learn the following things : 
-<br>
+The idea is to create an Android based application which can serve as an One Stop Solution from which the students can learn the following things : 
 - Fundamentals of a HAB
 - Design the experiments using the guidelines and Bill of Materials (BOM)
 - Build the HAB
@@ -32,6 +28,7 @@ We plan to develop a lesson-plan and bill of materials (BOM) to teach students h
 - Apply the correct retrieval / recovery procedure
 - Conduct scientific experiments from data collected
 - Comparing it with real world model and expand their knowledge
+
 
 > This app will be interactive and intuitive, designed in such a way that follows the best teaching pedagogy and can be considered as a standalone resource. It will help the students learn the community guidelines and follow government protocols involved in launching a high altitude balloon.
 
