@@ -1,26 +1,19 @@
 package com.deepspace.hab.screens.guidelines
 
 import android.os.Bundle
-import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.deepspace.common.base.BaseFragment
 import com.deepspace.hab.R
 import com.deepspace.hab.databinding.FragmentGuidelinesBinding
-import com.deepspace.hab.screens.HomeViewModel
-import com.deepspace.hab.screens.modules.ModuleAdapter
 
 class GuidelinesFragment : BaseFragment<FragmentGuidelinesBinding>() {
 
-    override fun getViewBinding(): FragmentGuidelinesBinding =
-        FragmentGuidelinesBinding.inflate(layoutInflater)
-
-    private val viewModel: HomeViewModel by activityViewModels()
+    override fun getViewBinding(): FragmentGuidelinesBinding = FragmentGuidelinesBinding.inflate(layoutInflater)
 
     override fun onViewCreated(savedInstanceState: Bundle?) {
         val resourceAdapter = ResourceAdapter()
-        binding.rvResources.layoutManager =
-            GridLayoutManager(requireContext(), 2, GridLayoutManager.VERTICAL, false)
+        binding.rvResources.layoutManager = GridLayoutManager(requireContext(), 2, GridLayoutManager.VERTICAL, false)
         binding.rvResources.adapter = resourceAdapter
         resourceAdapter.submitList(getResourceList())
 

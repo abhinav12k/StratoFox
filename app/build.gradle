@@ -5,6 +5,7 @@ plugins {
     id 'kotlin-parcelize'
     id 'androidx.navigation.safeargs.kotlin'
     id 'kotlin-kapt'
+    id 'com.google.firebase.crashlytics'
 }
 
 def rootConfiguration = rootProject.ext
@@ -66,11 +67,14 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth-ktx'
     implementation 'com.google.firebase:firebase-analytics-ktx'
     implementation 'com.google.firebase:firebase-firestore-ktx'
+    implementation 'com.google.firebase:firebase-crashlytics'
+    implementation 'com.google.firebase:firebase-analytics'
 
     //navigation
     implementation "androidx.navigation:navigation-fragment-ktx:${rootConfiguration.navVersion}"
     implementation "androidx.navigation:navigation-ui-ktx:${rootConfiguration.navVersion}"
 
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.4.1"
     implementation "io.noties.markwon:core:${rootConfiguration.markwonVersion}"
     implementation("com.squareup.moshi:moshi-kotlin:${rootConfiguration.moshiVersion}")
     kapt("com.squareup.moshi:moshi-kotlin-codegen:${rootConfiguration.moshiVersion}")

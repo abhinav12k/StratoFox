@@ -78,14 +78,14 @@ class SplashScreenActivity : AppCompatActivity() {
 
     private fun shiftToHomeActivity(modules: List<Module>) {
         val intent = Intent(this, HomeActivity::class.java)
-        intent.putParcelableArrayListExtra(MODULE_LIST, ArrayList(modules))
+//        intent.putParcelableArrayListExtra(MODULE_LIST, ArrayList(modules))
         startActivity(intent)
         finish()
     }
 
     private fun shiftToWelcomeActivity(modules: List<Module>) {
         val welcomeIntent = Intent(this, WelcomeActivity::class.java)
-        welcomeIntent.putParcelableArrayListExtra(MODULE_LIST, ArrayList(modules))
+//        welcomeIntent.putParcelableArrayListExtra(MODULE_LIST, ArrayList(modules))
         startActivity(welcomeIntent)
         finish()
     }

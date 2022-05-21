@@ -63,16 +63,16 @@ class ModuleAdapter(private val onClick: (Module) -> Unit) :
         }
 
         private fun setupColors(module: Module) {
-            moduleImage.setImageResource(getImageDrawable(module.rank))
+            moduleImage.setImageResource(getImageDrawable(module.rank ?: 1))
             moduleBgColor.setCardBackgroundColor(
                 ContextCompat.getColor(
                     itemView.context,
-                    getBackgroundColorID(module.rank)
+                    getBackgroundColorID(module.rank ?:  1)
                 )
             )
             ContextCompat.getColor(
                 itemView.context,
-                getTextColor(module.rank)
+                getTextColor(module.rank ?: 1)
             ).apply {
                 moduleTitle.setTextColor(this)
                 moduleNoInWords.setTextColor(this)
@@ -81,14 +81,14 @@ class ModuleAdapter(private val onClick: (Module) -> Unit) :
             moduleNo.setTextColor(
                 ContextCompat.getColor(
                     itemView.context,
-                    getModuleNoColor(module.rank)
+                    getModuleNoColor(module.rank ?: 1)
                 )
             )
-            startBtn.setBackgroundResource(getStartBtnBg(module.rank))
+            startBtn.setBackgroundResource(getStartBtnBg(module.rank ?: 1))
             startBtn.setTextColor(
                 ContextCompat.getColor(
                     itemView.context,
-                    getStartBtnTextColor(module.rank)
+                    getStartBtnTextColor(module.rank ?: 1)
                 )
             )
         }

@@ -209,8 +209,8 @@ class LessonListFragment : BaseFragment<FragmentLessonListBinding>() {
         binding.tvModuleTitle.text = module.title
         binding.tvModuleDescription.text = module.description
         binding.tvModuleName.text = moduleName
-        setupLineColor(module.rank)
-        setupImage(module.rank)
+        module.rank?.let { setupLineColor(it) }
+        module.rank?.let { setupImage(it) }
     }
 
     private fun setupImage(moduleNo: Int) {
