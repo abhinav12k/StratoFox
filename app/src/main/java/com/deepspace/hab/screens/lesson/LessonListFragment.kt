@@ -29,8 +29,7 @@ class LessonListFragment : BaseFragment<FragmentLessonListBinding>() {
         lessonAdapter.submitList(generateLessonList(lessonViewModel.moduleDetails?.rank!!))
 
         binding.ivBackBtn.setOnClickListener {
-            //TODO: Check this not working
-            findNavController().popBackStack(findNavController().currentDestination?.id!!, false)
+            requireActivity().finish()
         }
     }
 
