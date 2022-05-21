@@ -30,6 +30,7 @@ class ModuleFragment : BaseFragment<FragmentModuleBinding>() {
 
         binding.cardModule0.setOnClickListener {
             findNavController().navigate(
+                //TODO: Make this also available on firebase
                 ModuleFragmentDirections.actionModuleFragmentToLessonActivity(
                     Module(
                         description = "Learn about the fundamentals and experiment of building a HAB",
