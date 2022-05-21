@@ -9,9 +9,8 @@ import com.deepspace.common.base.BaseFragment
 import com.deepspace.hab.Stratofox
 import com.deepspace.hab.databinding.FragmentModuleBinding
 import com.deepspace.hab.models.Module
-import com.deepspace.hab.screens.HomeViewModel
-import com.deepspace.hab.screens.HomeViewModelFactory
-import com.deepspace.hab.screens.ModuleViewState
+import com.deepspace.hab.screens.home.HomeViewModel
+import com.deepspace.hab.screens.home.HomeViewModelFactory
 import timber.log.Timber
 
 class ModuleFragment : BaseFragment<FragmentModuleBinding>() {

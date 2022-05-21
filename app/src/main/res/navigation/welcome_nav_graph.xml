@@ -33,7 +33,7 @@
     </fragment>
     <activity
         android:id="@+id/homeActivity"
-        android:name="com.deepspace.hab.screens.HomeActivity"
+        android:name="com.deepspace.hab.screens.home.HomeActivity"
         android:label="activity_home"
         tools:layout="@layout/activity_home"/>
 </navigation>

@@ -43,7 +43,7 @@
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".screens.HomeActivity"
+            android:name=".screens.home.HomeActivity"
             android:exported="true"
             android:label="@string/title_activity_home"
             android:screenOrientation="portrait" />

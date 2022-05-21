@@ -1,9 +1,10 @@
-package com.deepspace.hab.screens
+package com.deepspace.hab.screens.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.deepspace.hab.screens.modules.ModuleViewState
 import kotlinx.coroutines.launch
 
 /**

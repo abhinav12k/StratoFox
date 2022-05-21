@@ -1,4 +1,4 @@
-package com.deepspace.hab.screens
+package com.deepspace.hab.screens.home
 
 import android.os.Bundle
 import android.view.View

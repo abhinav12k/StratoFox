@@ -1,4 +1,4 @@
-package com.deepspace.hab.screens
+package com.deepspace.hab.screens.home
 
 import com.deepspace.hab.constants.StratofoxFirebaseConstants
 import com.deepspace.hab.models.Module

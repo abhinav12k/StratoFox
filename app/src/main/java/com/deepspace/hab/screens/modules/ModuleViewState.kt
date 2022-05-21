@@ -1,4 +1,4 @@
-package com.deepspace.hab.screens
+package com.deepspace.hab.screens.modules
 
 import com.deepspace.hab.models.Module
 

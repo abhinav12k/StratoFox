@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.deepspace.hab.models.Module
+import com.deepspace.hab.screens.home.HomeActivity
 import com.deepspace.hab.screens.welcome.WelcomeActivity
 import com.deepspace.hab.utils.SharedPrefManager
 import com.google.firebase.auth.FirebaseAuth

@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.deepspace.common.base.BaseFragment
 import com.deepspace.hab.databinding.FragmentDisclaimerBinding
-import com.deepspace.hab.screens.HomeActivity
+import com.deepspace.hab.screens.home.HomeActivity
 
 class DisclaimerFragment : BaseFragment<FragmentDisclaimerBinding>() {
 

@@ -1,7 +1,7 @@
 package com.deepspace.hab
 
 import android.app.Application
-import com.deepspace.hab.screens.HomeRepository
+import com.deepspace.hab.screens.home.HomeRepository
 import timber.log.Timber
 
 /**
