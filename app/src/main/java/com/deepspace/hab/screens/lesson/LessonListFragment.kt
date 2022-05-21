@@ -5,33 +5,60 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.deepspace.common.base.BaseFragment
+import com.deepspace.hab.R
+import com.deepspace.hab.Stratofox
+import com.deepspace.hab.StratofoxViewModelFactory
+import com.deepspace.hab.databinding.FragmentLessonListBinding
 import com.deepspace.hab.models.Module
 import com.deepspace.hab.models.ModuleSection
-import com.deepspace.hab.R
-import com.deepspace.hab.databinding.FragmentLessonListBinding
 import timber.log.Timber
 
 class LessonListFragment : BaseFragment<FragmentLessonListBinding>() {
 
-    override fun getViewBinding(): FragmentLessonListBinding =
-        FragmentLessonListBinding.inflate(layoutInflater)
+    override fun getViewBinding(): FragmentLessonListBinding = FragmentLessonListBinding.inflate(layoutInflater)
 
-    private val lessonViewModel: LessonViewModel by activityViewModels()
+    private val lessonViewModel: LessonViewModel by activityViewModels {
+        StratofoxViewModelFactory((requireActivity().application as Stratofox).homeRepository)
+    }
+    private var lessonListAdapter: LessonListAdapter? = null
 
     override fun onViewCreated(savedInstanceState: Bundle?) {
-        lessonViewModel.moduleDetails?.let { setupTextualContent(it) }
-
-        val lessonAdapter =
-            LessonListAdapter { moduleSection -> goToLessonDetailActivity(moduleSection) }
-        binding.rvLessonList.layoutManager =
-            LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-        binding.rvLessonList.adapter = lessonAdapter
-        lessonAdapter.submitList(generateLessonList(lessonViewModel.moduleDetails?.rank!!))
-
+        observeViewState()
+        initUI()
         binding.ivBackBtn.setOnClickListener {
             requireActivity().finish()
         }
     }
+
+    private fun initUI() {
+        lessonViewModel.currModule?.id?.let { lessonViewModel.fetchModuleSections(it) } //TODO: if id is null show error and retry
+        lessonViewModel.currModule?.let { setupTextualContent(it) }
+        initAdapter()
+    }
+
+    private fun initAdapter() {
+        lessonListAdapter = LessonListAdapter { moduleSection -> goToLessonDetailActivity(moduleSection) }
+        binding.rvLessonList.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+        binding.rvLessonList.adapter = lessonListAdapter
+    }
+
+    private fun observeViewState() {
+        lessonViewModel.moduleSectionsViewState.observe(viewLifecycleOwner) {
+            handleViewState(it)
+        }
+    }
+
+    private fun handleViewState(viewState: ModuleSectionsViewState){
+        if(viewState.showLoader){
+            //show loader
+        }else{
+            //hide loader
+        }
+        viewState.moduleSections?.let {
+            lessonListAdapter?.submitList(it)
+        }
+    }
+
 
     private fun generateLessonList(rank: Int): List<ModuleSection> {
         return when (rank) {
@@ -355,8 +382,8 @@ class LessonListFragment : BaseFragment<FragmentLessonListBinding>() {
         lessonViewModel.lessonContent = lessonContent
         findNavController().navigate(
             LessonListFragmentDirections.actionLessonListFragmentToLessonDetailFragment(
-                moduleSection.moduleNo,
-                moduleSection.lessonNumber
+                moduleSection.moduleNo ?: 1,
+                moduleSection.lessonNumber ?: 1
             )
         )
     }

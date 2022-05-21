@@ -7,10 +7,10 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.deepspace.common.base.BaseFragment
 import com.deepspace.hab.Stratofox
+import com.deepspace.hab.StratofoxViewModelFactory
 import com.deepspace.hab.databinding.FragmentModuleBinding
 import com.deepspace.hab.models.Module
 import com.deepspace.hab.screens.home.HomeViewModel
-import com.deepspace.hab.screens.home.HomeViewModelFactory
 import timber.log.Timber
 
 class ModuleFragment : BaseFragment<FragmentModuleBinding>() {
@@ -19,7 +19,7 @@ class ModuleFragment : BaseFragment<FragmentModuleBinding>() {
         FragmentModuleBinding.inflate(layoutInflater)
 
     private val viewModel: HomeViewModel by activityViewModels {
-        HomeViewModelFactory((requireActivity().application as Stratofox).homeRepository)
+        StratofoxViewModelFactory((requireActivity().application as Stratofox).homeRepository)
     }
     private var moduleAdapter: ModuleAdapter? = null
 

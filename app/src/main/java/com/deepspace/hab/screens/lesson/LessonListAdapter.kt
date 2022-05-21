@@ -37,7 +37,7 @@ class LessonListAdapter(private val onClick: (ModuleSection) -> Unit) :
             currentModuleSection = moduleSection
             title.text = moduleSection.title
             lessonDuration.text = moduleSection.duration
-            playBtn.setImageResource(getPlayBtn(moduleSection.moduleNo))
+            playBtn.setImageResource(getPlayBtn(moduleSection.moduleNo ?: 0))
         }
 
         private fun getPlayBtn(moduleNo: Int): Int {
