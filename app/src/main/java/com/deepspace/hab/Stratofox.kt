@@ -2,6 +2,8 @@ package com.deepspace.hab
 
 import android.app.Application
 import com.deepspace.hab.screens.home.HomeRepository
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import timber.log.Timber
 
 /**
@@ -9,7 +11,8 @@ import timber.log.Timber
  */
 class Stratofox : Application() {
 
-    val homeRepository: HomeRepository by lazy { HomeRepository() }
+    private val db by lazy { Firebase.firestore }
+    val homeRepository: HomeRepository by lazy { HomeRepository(db) }
 
     override fun onCreate() {
         super.onCreate()
