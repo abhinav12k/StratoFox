@@ -25,11 +25,11 @@ class LessonViewModel(private val repo: HomeRepository) : ViewModel() {
 
     var lessonContent: LessonDetailFragment.LessonContent? = null
 
-    fun fetchModuleSections(moduleId: String) {
+    fun fetchModuleSections(moduleId: String, moduleSectionVersion: String?) {
         viewModelScope.launch {
             if(_moduleSectionsViewState.value == null) {
                 _moduleSectionsViewState.value = ModuleSectionsViewState(showLoader = true)
-                _moduleSectionsViewState.value = ModuleSectionsViewState(showLoader = false, repo.fetchModuleSections(moduleId))
+                _moduleSectionsViewState.value = ModuleSectionsViewState(showLoader = false, repo.fetchModuleSections(moduleId,moduleSectionVersion))
             }else{
                 _moduleSectionsViewState.value = ModuleSectionsViewState(showLoader = false, _moduleSectionsViewState.value?.moduleSections)
             }

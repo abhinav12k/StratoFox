@@ -20,7 +20,7 @@ data class Module(
     val noOfLessons: Int? = 0,
     val rank: Int? = 0,  //to determine position
     val title: String? = "",
-    val version: String? = "",   //Not necessary
+    val moduleSectionVersion: String? = "",   //Not necessary
 ) : BaseModel(), Parcelable {
     companion object {
         fun DocumentSnapshot.toModule(): Module? {
@@ -31,8 +31,8 @@ data class Module(
                 val noOfLessons = getLong("noOfLessons")?.toInt()
                 val rank = getLong("rank")?.toInt()
                 val title = getString("title")
-                val version = getString("version")
-                return Module(id, description, moduleDuration, imageId, noOfLessons, rank, title, version)
+                val moduleSectionVersion = getString("moduleSectionVersion")
+                return Module(id, description, moduleDuration, imageId, noOfLessons, rank, title, moduleSectionVersion)
             } catch (e: Exception) {
                 Timber.e("Error converting module: $e")
                 FirebaseCrashlytics.getInstance().log("Error converting module")

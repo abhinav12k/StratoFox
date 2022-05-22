@@ -31,7 +31,7 @@ class LessonListFragment : BaseFragment<FragmentLessonListBinding>() {
     }
 
     private fun initUI() {
-        lessonViewModel.currModule?.id?.let { lessonViewModel.fetchModuleSections(it) } //TODO: if id is null show error and retry
+        lessonViewModel.currModule?.id?.let { lessonViewModel.fetchModuleSections(it, lessonViewModel.currModule?.moduleSectionVersion) } //TODO: if id is null show error and retry
         lessonViewModel.currModule?.let { setupTextualContent(it) }
         initAdapter()
     }
