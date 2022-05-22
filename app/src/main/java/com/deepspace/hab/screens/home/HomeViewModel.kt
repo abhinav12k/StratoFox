@@ -18,8 +18,12 @@ class HomeViewModel(private val repo: HomeRepository): ViewModel() {
 
     fun fetchModuleList() {
         viewModelScope.launch {
-            _moduleViewState.value = ModuleViewState(showLoader = true)
-            _moduleViewState.value = ModuleViewState(showLoader = false, repo.fetchModuleList())
+            if(_moduleViewState.value == null) {
+                _moduleViewState.value = ModuleViewState(showLoader = true)
+                _moduleViewState.value = ModuleViewState(showLoader = false, repo.fetchModuleList())
+            }else{
+                _moduleViewState.value = ModuleViewState(showLoader = false, _moduleViewState.value?.moduleList)
+            }
         }
     }
 

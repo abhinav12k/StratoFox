@@ -27,8 +27,12 @@ class LessonViewModel(private val repo: HomeRepository) : ViewModel() {
 
     fun fetchModuleSections(moduleId: String) {
         viewModelScope.launch {
-            _moduleSectionsViewState.value = ModuleSectionsViewState(showLoader = true)
-            _moduleSectionsViewState.value = ModuleSectionsViewState(showLoader = false, repo.fetchModuleSections(moduleId))
+            if(_moduleSectionsViewState.value == null) {
+                _moduleSectionsViewState.value = ModuleSectionsViewState(showLoader = true)
+                _moduleSectionsViewState.value = ModuleSectionsViewState(showLoader = false, repo.fetchModuleSections(moduleId))
+            }else{
+                _moduleSectionsViewState.value = ModuleSectionsViewState(showLoader = false, _moduleSectionsViewState.value?.moduleSections)
+            }
         }
     }
 
