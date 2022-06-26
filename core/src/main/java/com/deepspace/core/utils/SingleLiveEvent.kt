@@ -1,4 +1,4 @@
-package com.deepspace.hab.utils
+package com.deepspace.core.utils
 
 import android.util.Log
 import androidx.annotation.MainThread

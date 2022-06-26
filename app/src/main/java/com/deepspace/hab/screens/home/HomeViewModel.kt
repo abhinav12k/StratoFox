@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.deepspace.hab.screens.modules.ModuleViewState
-import com.deepspace.hab.utils.SingleLiveEvent
+import com.deepspace.core.utils.SingleLiveEvent
 import kotlinx.coroutines.launch
 
 /**
@@ -13,7 +13,7 @@ import kotlinx.coroutines.launch
  */
 class HomeViewModel(private val repo: HomeRepository): ViewModel() {
 
-    private val _moduleViewState = SingleLiveEvent<ModuleViewState>()
+    private val _moduleViewState = com.deepspace.core.utils.SingleLiveEvent<ModuleViewState>()
     val moduleViewState: LiveData<ModuleViewState> = _moduleViewState
 
     fun fetchModuleList() {

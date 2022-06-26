@@ -45,6 +45,7 @@ dependencies {
 
     implementation project(":common")
     implementation project(":resources")
+    implementation project(":core")
     implementation "androidx.core:core-ktx:${rootConfiguration.androidXVersion}"
     implementation "androidx.appcompat:appcompat:${rootConfiguration.appCompatVersion}"
     implementation "com.google.android.material:material:${rootConfiguration.materialVersion}"

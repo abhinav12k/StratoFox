@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.deepspace.hab.models.Module
 import com.deepspace.hab.screens.home.HomeActivity
 import com.deepspace.hab.screens.welcome.WelcomeActivity
-import com.deepspace.hab.utils.SharedPrefManager
+import com.deepspace.core.utils.SharedPrefManager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -15,7 +15,7 @@ import timber.log.Timber
 class SplashScreenActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
-    private lateinit var sharedPrefManager: SharedPrefManager
+    private lateinit var sharedPrefManager: com.deepspace.core.utils.SharedPrefManager
     private var isFirstLogin: Boolean = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,7 +35,7 @@ class SplashScreenActivity : AppCompatActivity() {
 
     private fun initVariables() {
         auth = Firebase.auth
-        sharedPrefManager = SharedPrefManager.getInstance(applicationContext)
+        sharedPrefManager = com.deepspace.core.utils.SharedPrefManager.getInstance(applicationContext)
     }
 
     private fun isUserLoggedIn(): Boolean {

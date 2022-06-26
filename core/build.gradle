@@ -1,0 +1,46 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}
+
+def rootConfiguration = rootProject.ext
+
+android {
+    compileSdk 32
+
+    defaultConfig {
+        minSdk 23
+        targetSdk 32
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation "androidx.core:core-ktx:${rootConfiguration.androidXVersion}"
+    implementation "androidx.appcompat:appcompat:${rootConfiguration.appCompatVersion}"
+    implementation "com.google.android.material:material:${rootConfiguration.materialVersion}"
+    implementation "androidx.recyclerview:recyclerview:${rootConfiguration.recyclerViewVersion}"
+    implementation "com.jakewharton.timber:timber:${rootConfiguration.timberVersion}"
+
+    //Test
+    testImplementation "junit:junit:${rootConfiguration.junitVersion}"
+    androidTestImplementation "androidx.test.ext:junit:${rootConfiguration.extJunitVersion}"
+    androidTestImplementation "androidx.test.espresso:espresso-core:${rootConfiguration.espressoVersion}"
+}

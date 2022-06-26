@@ -8,7 +8,7 @@ import com.deepspace.hab.models.Lesson
 import com.deepspace.hab.models.Module
 import com.deepspace.hab.models.ModuleSection
 import com.deepspace.hab.screens.home.HomeRepository
-import com.deepspace.hab.utils.SingleLiveEvent
+import com.deepspace.core.utils.SingleLiveEvent
 import kotlinx.coroutines.launch
 
 /**
@@ -16,7 +16,8 @@ import kotlinx.coroutines.launch
  */
 class LessonViewModel(private val repo: HomeRepository) : ViewModel() {
 
-    private val _moduleSectionsViewState = SingleLiveEvent<ModuleSectionsViewState>()
+    private val _moduleSectionsViewState =
+        com.deepspace.core.utils.SingleLiveEvent<ModuleSectionsViewState>()
     val moduleSectionsViewState: LiveData<ModuleSectionsViewState> = _moduleSectionsViewState
 
     var currModule: Module? = null

@@ -11,7 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.deepspace.common.base.BaseFragment
 import com.deepspace.hab.R
 import com.deepspace.hab.databinding.FragmentWelcomeBinding
-import com.deepspace.hab.utils.SharedPrefManager
+import com.deepspace.core.utils.SharedPrefManager
 import timber.log.Timber
 
 class WelcomeFragment : BaseFragment<FragmentWelcomeBinding>() {
@@ -19,10 +19,10 @@ class WelcomeFragment : BaseFragment<FragmentWelcomeBinding>() {
     override fun getViewBinding(): FragmentWelcomeBinding =
         FragmentWelcomeBinding.inflate(layoutInflater)
 
-    private lateinit var sharedPrefs: SharedPrefManager
+    private lateinit var sharedPrefs: com.deepspace.core.utils.SharedPrefManager
 
     override fun onViewCreated(savedInstanceState: Bundle?) {
-        sharedPrefs = SharedPrefManager.getInstance(requireContext().applicationContext)
+        sharedPrefs = com.deepspace.core.utils.SharedPrefManager.getInstance(requireContext().applicationContext)
         binding.textfieldAddName.editText?.doOnTextChanged { inputText, _, _, _ ->
             if (inputText.isNullOrEmpty()) {
 //                binding.tvContinueBtn.setBackgroundResource(R.drawable.bg_btn_disabled)

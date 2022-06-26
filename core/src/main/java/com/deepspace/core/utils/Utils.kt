@@ -1,4 +1,4 @@
-package com.deepspace.hab.utils
+package com.deepspace.core.utils
 
 import android.content.Context
 import android.content.res.Resources.NotFoundException
