@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 }
 
 def rootConfiguration = rootProject.ext
@@ -29,6 +30,9 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildFeatures{
+        viewBinding true
+    }
 }
 
 dependencies {
@@ -38,6 +42,8 @@ dependencies {
     implementation "com.google.android.material:material:${rootConfiguration.materialVersion}"
     implementation "androidx.recyclerview:recyclerview:${rootConfiguration.recyclerViewVersion}"
     implementation "com.jakewharton.timber:timber:${rootConfiguration.timberVersion}"
+    api("com.squareup.moshi:moshi-kotlin:${rootConfiguration.moshiVersion}")
+    api kapt("com.squareup.moshi:moshi-kotlin-codegen:${rootConfiguration.moshiVersion}")
 
     //Test
     testImplementation "junit:junit:${rootConfiguration.junitVersion}"

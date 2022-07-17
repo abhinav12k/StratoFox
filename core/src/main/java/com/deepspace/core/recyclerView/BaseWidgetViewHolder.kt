@@ -3,7 +3,7 @@ package com.deepspace.core.recyclerView
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.deepspace.core.utils.dpToPx
-import com.deepspace.core.widget.BaseWidget
+import com.deepspace.core.baseWidget.BaseWidget
 
 abstract class BaseWidgetViewHolder<BW : BaseWidget<*, *>>(
     widget: BW,

@@ -76,7 +76,4 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:${rootConfiguration.navVersion}"
 
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.4.1"
-    implementation "io.noties.markwon:core:${rootConfiguration.markwonVersion}"
-    implementation("com.squareup.moshi:moshi-kotlin:${rootConfiguration.moshiVersion}")
-    kapt("com.squareup.moshi:moshi-kotlin-codegen:${rootConfiguration.moshiVersion}")
 }

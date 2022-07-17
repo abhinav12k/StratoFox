@@ -1,4 +1,4 @@
-package com.deepspace.core.widget
+package com.deepspace.core.baseWidget
 
 import android.content.Context
 import android.view.View

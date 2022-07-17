@@ -1,4 +1,4 @@
-package com.deepspace.core.widget
+package com.deepspace.core.baseWidget
 
 interface WidgetView<C: WidgetConfig> {
     fun updateView(widgetConfig: C)
